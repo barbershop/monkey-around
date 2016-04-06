@@ -17,13 +17,15 @@ export class Batch {
 		});
 	}
 
-	subscribe(list, operation_id, paramsArr) {
+	subscribe(list, bodyArr, operation_id) {
 
 		const URL = `/lists/${list}/members/`;
 		const METHOD = 'post';
 		let operations = [];
 
-		operations = _.map(paramsArr, function(body, i) {
+		// TODO: generate an operation_id from Date and project name or make required
+
+		operations = _.map(bodyArr, function(body, i) {
 			operation_id = `${operation_id}_${i}`;
 			// do not mutate the original object last param in list wins
 			return {
