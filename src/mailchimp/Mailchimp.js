@@ -1,6 +1,11 @@
 import axios from 'axios';
 import crypto from 'crypto';
 
+import Lists from './Lists';
+import Batch from './Batch';
+
+export { Lists, Batch };
+
 export default class Mailchimp {
 
 	constructor(apiKey, dc, options) {
