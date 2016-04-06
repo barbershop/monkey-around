@@ -1,7 +1,7 @@
 {
   "name": "monkey-around",
   "version": "1.0.0",
-  "description": "A mandrill api wrapper for node.js. Built for the 3.0 api. ",
+  "description": "A promise based mandrill and mailchimp api wrapper for node.js. ",
   "main": "lib/index.js",
   "scripts": {
     "test": "test/index.js",
