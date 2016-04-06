@@ -1,7 +1,7 @@
 import axios from 'axios';
 import crypto from 'crypto';
 
-import package from '../package.json';
+import info from '../package.json';
 import Lists from './Lists';
 import Batch from './Batch';
 
@@ -17,7 +17,7 @@ export default class Mailchimp {
 		const API_VERSION = '3.0';
 		const CRYPT_KEY = 'monkey-around';
 
-		// TODO: add test for promises and throw error if no polyfill is given or provide the polyfill
+		// TODO: add test for promises and throw error if no polyfill is given or provide the polyfill or set min js version
 		// TODO: what options should we prevent from happening?
 
 		const DEFAULTS = {
@@ -25,7 +25,7 @@ export default class Mailchimp {
 			timeout: 1000,
 			headers: {
 				'Content-Type': 'application/json',
-				'User-Agent': `${package.name}\${package.version}`
+				'User-Agent': `${info.name}\${info.version}`
 			},
 			auth: {
 				username: 'monkey-around',
