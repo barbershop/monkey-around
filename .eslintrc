@@ -1,0 +1,8 @@
+{
+  "parser": "babel-eslint",
+  "rules": {
+    "indent": [2, "tab"],
+    "no-unused-vars": [1, {"vars": "all", "argsIgnorePattern": "next|success|error|app|express"}],
+    "object-shorthand": [2, "always"]
+  }
+}
