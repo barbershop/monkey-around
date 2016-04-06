@@ -1,6 +1,7 @@
 import axios from 'axios';
 import crypto from 'crypto';
 
+import package from '../package.json';
 import Lists from './Lists';
 import Batch from './Batch';
 
@@ -20,11 +21,11 @@ export default class Mailchimp {
 		// TODO: what options should we prevent from happening?
 
 		const DEFAULTS = {
-			baseURL: 'https://${dc}.api.mailchimp.com/${API_VERSION}/',
+			baseURL: `https://${dc}.api.mailchimp.com/${API_VERSION}/`,
 			timeout: 1000,
 			headers: {
-				'content-type': 'application/json',
-
+				'Content-Type': 'application/json',
+				'User-Agent': `${package.name}\${package.version}`
 			},
 			auth: {
 				username: 'monkey-around',
@@ -37,6 +38,9 @@ export default class Mailchimp {
 
 		this.request = REQUEST;
 		this.cryptKey = CRYPT_KEY;
+
+		this.lists = new Lists(this);
+		this.batch = new Batch(this);
 
 	}
 

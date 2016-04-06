@@ -1,11 +1,20 @@
-import Mailchimp from './Mailchimp';
 import _ from 'lodash';
 
 
-export class Batch extends Mailchimp {
+export class Batch {
 
-	constructor(apiKey, dc, options) {
-		super(apiKey, dc, options);
+	constructor(mailchimp) {
+		this.mailchimp = mailchimp;
+	}
+
+	send(operations) {
+		return this.mailchimp.request({
+			url: '/batches',
+			method: 'post',
+			data: {
+				operations
+			}
+		});
 	}
 
 	subscribe(list, operation_id, paramsArr) {
@@ -25,7 +34,7 @@ export class Batch extends Mailchimp {
 			};
 		});
 
-		return this.request({
+		return this.mailchimp.request({
 			url: '/batches',
 			method: 'post',
 			data: operations
@@ -34,7 +43,7 @@ export class Batch extends Mailchimp {
 	}
 
 	status(id) {
-		return this.request({
+		return this.mailchimp.request({
 			url: `/batches/${id}`,
 			method: 'get'
 		});
