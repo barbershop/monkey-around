@@ -1,5 +1,3 @@
-import Mailchimp from './Mailchimp';
-import _ from 'lodash';
 
 export class List {
 
