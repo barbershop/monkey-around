@@ -37,7 +37,9 @@ export class Batch {
 		return this.mailchimp.request({
 			url: '/batches',
 			method: 'post',
-			data: operations
+			data: {
+				operations
+			}
 		});
 
 	}
